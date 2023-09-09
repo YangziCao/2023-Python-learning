@@ -134,7 +134,7 @@ else:
 #          不打折
 #非会员 >=200  9.5折
 #    以下    不打折
-
+'''
 answer=input('您是会员吗？y/n')
 money=float(input('请输入您的购物金额:'))
 if answer=='y':
@@ -149,7 +149,41 @@ else:
     print('打9.5折，付款金额为:',money*0.95)
  else:
     print('不打折，付款金额为:',money)
+    
+    '''
 
 
 #######E.条件表达式
+'''
+条件表达式式if...else的简写
+语法结构：
+x if 判断条件 else y
+运算规则：如果判断条件的bool值为True，条件表达式的返回值为x，否则条件表达式的返回值为Flase
+'''
+'''
+从键盘录入两个整数，比较2个整数的大小'''
 
+num_a=int(input('输入第一个整数'))
+num_b=int(input('输入第二个整数'))
+if num_a>=num_b:
+    print(num_a,'大于等于',num_b)
+else:
+    print(num_a,'小于',num_b)
+
+#简写上述代码   使用条件表达式进行比较
+print((num_a,'大于等于',num_b) if num_a>=num_b else (num_a,'小于',num_b)) #这样写不好看，写成str类型
+
+print(str(num_a)+'大于等于'+str(num_b) if num_a>=num_b else str(num_a)+'小于'+str(num_b))
+
+
+#######F. pass语句
+'''
+pass语句其实什么都不做，只是一个占位符，用在语法上需要语句的地方
+适用情况：先搭建语法结构，还没想好代码怎么写的时候
+哪些语句一起使用 1.if语句的条件执行体，2.for-in语句的循环体，3.定义函数时的函数体
+'''
+if answer=='y':
+    pass
+else:
+    pass
+#如果没有想好具体的代码如何写，可以先写pass，这样就不会报错了
