@@ -51,3 +51,10 @@ a  a<5        sum   sum+=a
 4  4<5  ture   10    6+4
 5  5<5  flase
 '''
+
+#计算1-100之间的偶数和
+sum=0
+a=0
+a
+while a<101:
+
