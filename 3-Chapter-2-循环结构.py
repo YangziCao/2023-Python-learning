@@ -55,6 +55,26 @@ a  a<5        sum   sum+=a
 #计算1-100之间的偶数和
 sum=0
 a=0
-a
 while a<101:
+    sum+=a
+    a+=2
+print('和为',sum)
+
+#h或者这样写
+sum=0
+a=0
+while a<101:
+    if a%2==0:
+     sum+=a
+    a+=1
+print('和为',sum)
+
+#或者
+sum=0
+a=0
+while a<101:
+    if not bool(a%2):
+     sum+=a
+    a+=1
+print('和为',sum)
 
