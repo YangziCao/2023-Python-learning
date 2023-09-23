@@ -112,7 +112,29 @@ print(lst[6:0:-2])
 #[70, 50, 30]   到0结束，但是不包含0，  start 是闭区间，stop是闭区间
 
 '''
+列表元素的查询操作
+1.判断指定元素在列表中是否存在
+元素 in 列表名
+元素 not in 列表名
+2.列表元素的遍历
+for 迭代变量 in 列表名
+操作
 
+'''
+#1.
+print('p' in 'python')  #true
+print('k' not in 'python') #true
 
+lst=[10,20,'python','hello']
+print(10 in lst) #true
 
+#2.列表元素的遍历
+for item in lst:
+    print(item)
+'''
+输出
+10
+20
+python
+hello
 '''
