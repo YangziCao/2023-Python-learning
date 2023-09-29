@@ -91,12 +91,42 @@ print('-8910'.zfill(8))    #-8910  共5个字符
 四. 字符串劈分操作
 1. split() 
 从字符串的左边开始劈分，默认的劈分字符是空格字符串，返回的值都是一个列表
-以通过参数sep指定劈分字符串式的劈分符
+以通过参数sep指定劈分字符串的劈分符
 通过参数maxsplit指定劈分字符串时的最大劈分次数，在经过最大次劈分之后，剩余的子串会单独作为一部分
 
 2.rsplit()
 从字符串的右边开始劈分，默认的劈分字符是空格字符串，返回的值都是一个列表
 以通过参数sep指定劈分字符串式的劈分符
 通过参数maxsplit指定劈分字符串时的最大劈分次数，在经过最大次劈分之后，剩余的子串会单独作为一部分
+'''
 
+#1.
+s='hello world python'
+lst=s.split()
+print(lst)
+# ['hello', 'world', 'python']   默认从空格开始劈分
+
+s1='hello|world|Python'
+print(s1.split(sep='|'))
+#['hello', 'world', 'Python']
+
+print(s1.split(sep='|',maxsplit=1))
+#['hello', 'world|Python']   #以|劈分，只劈分一次
+
+#2. rsplit
+print(s.rsplit())
+# ['hello', 'world', 'python']
+print(s1.rsplit(sep='|'))
+# ['hello', 'world', 'Python']
+print(s1.rsplit(sep='|',maxsplit=1))
+#['hello|world', 'Python']
+
+'''
+五. 判断字符串操作的方法
+1. isidentifier() 判断指定的字符串是不是合法的标识符
+2. isspace()      判断指定的字符串是否全部由空白字符组成（回车，换行，水平制表符）
+3. isalpha()      判断指定的字符串是否全部由字母组成
+4. isdecimal()   判断指定的字符串是否全部由十进制的数字组成
+5. isnumeric()    判断指定的字符串是否全部由数字组成
+6. isalnum()      判断指定的字符串是否全部由字母和数字组成
 '''
