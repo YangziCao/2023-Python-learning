@@ -126,7 +126,59 @@ print(s1.rsplit(sep='|',maxsplit=1))
 1. isidentifier() 判断指定的字符串是不是合法的标识符
 2. isspace()      判断指定的字符串是否全部由空白字符组成（回车，换行，水平制表符）
 3. isalpha()      判断指定的字符串是否全部由字母组成
-4. isdecimal()   判断指定的字符串是否全部由十进制的数字组成
+4. isdecimal()    判断指定的字符串是否全部由十进制的数字组成
 5. isnumeric()    判断指定的字符串是否全部由数字组成
 6. isalnum()      判断指定的字符串是否全部由字母和数字组成
 '''
+#1.
+s='hello,python'
+print(s.isidentifier())  # False 不能有逗号
+s='hello'
+print(s.isidentifier())  # True
+
+#2.
+print('\t'.isspace())  # True
+
+#3.
+print('abc'.isalpha()) #True
+
+#4.
+print('123'.isdecimal())  # True
+print('123四'.isdecimal()) # False
+
+#5.
+print('123'.isnumeric()) #True
+print('123四'.isnumeric()) # True
+
+#6.
+print('abc1'.isalnum())  #True
+
+'''
+六. 字符串操作的其他方法
+1. 字符串替换 replace()  
+第一个参数指定被替换的子串，第2个参数指定替换子串的字符串，该方法返回替换后得到的字符串，替换前的字符串不发生变化，
+调用该方法时可以通过第3个参数指定最大替换次数
+2. 字符串的合并 join（）
+将列表或元组中的字符串合并成一个字符串
+'''
+#1.
+s='hello,Python'
+print(s.replace('Python','Java'))
+#hello,Java
+s1='hello,Python,Python,Python'
+print(s1.replace('Python','Java',2))
+#hello,Java,Java,Python
+
+#2.
+lst=['hello','java','python']  #列表
+print('|'.join(lst))
+#hello|java|python
+print(' '.join(lst))
+#hello java python
+
+t=('hello','java','python')  #元组
+print('|'.join(t))
+#hello|java|python
+
+print('*'.join('python'))
+#p*y*t*h*o*n
