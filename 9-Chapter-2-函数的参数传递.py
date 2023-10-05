@@ -9,5 +9,11 @@ calc(b=10,a=30)
    #b形参名称， 10是实参数
    #b传参给下面的b
 def calc(a,b)
+
 '''
 
+def calc(a,b):
+    c=a+b
+    return c
+result=calc(10,30)
+print(result)
