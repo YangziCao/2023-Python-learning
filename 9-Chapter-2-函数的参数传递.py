@@ -17,3 +17,10 @@ def calc(a,b):
     return c
 result=calc(10,30)
 print(result)
+
+def calc(a,b):
+    c=a+b
+    return c
+result=calc(100,30)
+print(result)
+#0.0.0.0.0
