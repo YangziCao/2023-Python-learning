@@ -59,6 +59,7 @@ Python支持多继承，父类里面可继承多个
 定义子类时，必须在其构造函数中调用父类的构造函数
 '''
 #2.继承的代码实现
+
 class Person(object):  #Person继承object类
     def __init__(self,name,age):
         self.name=name
@@ -81,6 +82,8 @@ teacher=Teacher('Nakho',34,10)
 
 stu.info()
 teacher.info()
+#Mells 20
+#Nakho 34
 
 
 #多继承实例   Python支持多继承，父类里面可继承多个
@@ -99,3 +102,37 @@ class C(A,B):
 #如果子类对继承自父类的某个属性或方法不满意，可以在子类中对其（方法体）进行重新编写
 #子类重写后的方法中可以通过super（）.xxx()调用父类中被重写的方法
 
+#EX. line62-85  无法输出学号和教龄， 但是info的方法完不成这个操作 因为父类中既没有学号no也没有教龄 teachofyear
+#此时子类想输出自己的东西，父类已经无法满足需求了
+class Person(object):  #Person继承object类
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def info(self):
+        print(self.name,self.age)
+
+class Student(Person):
+    def __init__(self,name,age,stu_no):
+        super().__init__(name,age)
+        self.stu_no=stu_no
+    def info(self):  #此时左边出现一个箭头，鼠标放上去显示 overrides method in Person(覆盖person中的方法)
+        super().info()   #不写此行的话，只会打印出，学号，而不会打印出之前的name and age
+        print(self.stu_no)
+
+class Teacher(Person):
+    def __init__(self,name,age,teachofyear):
+        super().__init__(name,age)
+        self.teachofyear=teachofyear
+    def info(self):
+        super().info()
+        print('教龄',self.teachofyear)
+
+stu=Student('Mells',20,'1001')
+teacher=Teacher('Nakho',34,10)
+
+stu.info()
+teacher.info()
+#Mells 20
+#1001
+#Nakho 34
+#教龄 10
