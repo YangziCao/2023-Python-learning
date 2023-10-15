@@ -98,6 +98,8 @@ class C(A,B):
 #c类同时继承A和B，  AB是c的父类
 
 
+
+#--------------------------------------------------------------------------------------------------
 #3.方法重写
 #如果子类对继承自父类的某个属性或方法不满意，可以在子类中对其（方法体）进行重新编写
 #子类重写后的方法中可以通过super（）.xxx()调用父类中被重写的方法
@@ -136,3 +138,38 @@ teacher.info()
 #1001
 #Nakho 34
 #教龄 10
+
+
+
+#---------------------------------------------------------------------------------------------------------
+#4.object类
+'''
+object类是所有类的父类，因此所有类都有object类的属性和方法     
+如果一个类没有继承任何类，则默认继承object
+内置函数dir()可以查看指定对象所有属性
+object有一个 _str_()方法，用于返回一个对于“对象的描述”，对应于内置函数str()经常用于print()方法，帮助我们查看对象的信息，所以我们经常会对
+_str_()进行重写
+'''
+class Student:
+    pass
+stu=Student()
+print(dir(stu))  #查看stu这个类所具有的属性和方法
+#['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__']
+# print如此多的属性和方法不是我们在student类里所定义的，这些属性和方法都是从父类object当中所继承过来的
+print(stu)
+#<__main__.Student object at 0x000001DD574143D0>  查看地址
+
+class Student:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def __str__(self):
+        return'我的名字是{0}，今年{1}岁'.format(self.name,self.age)
+
+stu=Student('Jack',20)
+print(dir(stu))
+print(stu)   #默认调用str方法
+#我的名字是Jack，今年20岁
+#重写了str之后，不再输出对象的内存地址，而是调用str函数，输出里面的内容
+print(type(stu))
+#<class '__main__.Student'>
