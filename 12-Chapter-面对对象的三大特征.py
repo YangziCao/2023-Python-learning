@@ -173,3 +173,48 @@ print(stu)   #默认调用str方法
 #重写了str之后，不再输出对象的内存地址，而是调用str函数，输出里面的内容
 print(type(stu))
 #<class '__main__.Student'>
+
+'''
+三. 多态
+简单地说，多态就是“具有多种形态”，它指的是：即使不知道一个变量所引用的对象到底是什么类型，仍然可以通过这个变量调用方法，
+在运行过程中根据变量所引用对象的类型，动态决定调用哪个对象中的方法
+'''
+class Animal(object):
+    def eat(self):
+        print('动物会吃')
+class Dog(Animal):
+    def eat(self):
+        print('狗吃骨头')
+class Cat(Animal):
+    def eat(self):
+        print('猫吃鱼')
+
+class Person:   #没有继承任何类，则默认继承object类
+    def eat(self):
+        print('人吃五谷杂粮')
+
+#定义函数
+def fun(obj):
+    obj.eat()
+#开始调用函数
+fun(Cat())
+fun(Dog())
+fun(Animal())
+
+fun(Person())
+#猫吃鱼
+#狗吃骨头
+#动物会吃
+
+#人吃五谷杂粮  #person没有继承animal方法，但是person这个对象有eat方法，所以它也会调用eat方法
+#把这个就叫做 鸭子类型 ， python是一门动态语言，可以在创建对象之后，动态的绑定属性和方法
+#动态语言的多态崇尚“鸭子类型”，当看到一只鸟走起来像鸭子，游泳起来像鸭子，收起来也像鸭子，那么这只鸟就可以被称为鸭子。
+#在鸭子类型中，不需要关心对象是什么类型，到底是不是鸭子，只关心对象的行为
+#不需要关心person是谁的子类，只需要关心person是否具有eat的行为
+'''
+静态语言和动态语言关于多态的区别
+静态语言实现多态的三个必要条件    #java是静态语言
+a 继承
+b 方法重写
+c 父类引用指向子类对象
+'''
