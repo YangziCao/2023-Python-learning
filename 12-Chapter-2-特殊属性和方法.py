@@ -78,4 +78,4 @@ class Person():  #不写默认object类
         self.name=name
         self.age=age
     def __new__(cls, *args, **kwargs):
-        
+        ##################
