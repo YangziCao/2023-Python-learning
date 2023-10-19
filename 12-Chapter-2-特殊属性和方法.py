@@ -74,8 +74,30 @@ print(lst.__len__())
 
 #
 class Person():  #不写默认object类
+    def __new__(cls, *args, **kwargs):
+        print('__new__被调用执行了，cls的id值为{0}'.format(id(cls)))             #2320
+        obj=super().__new__(cls)
+        print('创建的对象的ID为{0}'.format(id(obj)))                                              #0240
+        return obj
+
     def __init__(self,name,age):
+        print('__init__被调用了，self的ID值为：{0}'.format(id(self)))                              #0240
         self.name=name
         self.age=age
-    def __new__(cls, *args, **kwargs):
-        ##################
+print('object这个类对象的id为：{0}'.format(id(object)))         #8048
+print('Person这个类对象的id为：{0}'.format(id(Person)))                         #2320
+#下来创建Person类的实例对象
+p1=Person('张三',20)     # = 表示赋值，先执行等号右侧的代码，
+print('p1这个Person类的实例对象的id：{0}'.format(id(p1)))                                           #0240
+#object这个类对象的id为：140705365528048
+#Person这个类对象的id为：1541128702320
+#__new__被调用执行了，cls的id值为1541128702320
+#创建的对象的ID为1541132740240
+#__init__被调用了，self的ID值为：1541132740240
+#p1这个Person类的实例对象的id：1541132740240
+
+#说明在new方法中所创建的对象就是self和p1
+#先把line90 中的Person给new方法中的cls，然后把cls传给object中的new方法去创建对象，然后将创建的对象赋值给self（line83）
+#然后self初始化方法执行完结束，再把self赋给p1 line90
+
+#new方法在前去创建对象，而init在后是为这个对象的实例属性进行赋值，最后将创建的对象放到p1当中进行存储
